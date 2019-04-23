@@ -2,6 +2,9 @@ import exampleVideoData from "../data/exampleVideoData.js";
 import VideoList from "./VideoList.js"
 import VideoPlayer from "./VideoPlayer.js";
 import App from "./App.js";
+import searchYouTube from "../lib/searchYouTube.js"
+import Search from "./Search.js";
+
 var VideoListEntry = (props) => (
   <div className="video-list-entry media">
     <div className="media-left media-middle">

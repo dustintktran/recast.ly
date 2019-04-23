@@ -1,10 +1,13 @@
 import searchYouTube from "../lib/searchYouTube.js"
 import YOUTUBE_API_KEY from "../config/youtube.js"
+import App from "./App.js";
+// var videoData = {};
+
 
 var Search = (props) => (
   <div className="search-bar form-inline">
     <input className="form-control" type="text" />
-    <button onClick={props.search} className="btn hidden-sm-down">
+    <button onClick={function () {props.searchFunction()}} className="btn hidden-sm-down">
       <span className="glyphicon glyphicon-search"></span>
     </button>
   </div> 

@@ -1,5 +1,8 @@
 import exampleVideoData from "../data/exampleVideoData.js";
 import VideoListEntry from "./VideoListEntry.js"
+import Search from "./Search.js";
+import searchYouTube from "../lib/searchYouTube.js"
+import App from "./App.js";
 
 var VideoList = (props) => (
   <div className="video-list">
