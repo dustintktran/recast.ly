@@ -15,10 +15,6 @@ var VideoPlayer = (props) => (
   </div>
 );
 
-// var playThisVideo = function(video){
-//   return "https://www.youtube.com/embed/" + video;
-// }
-
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
 VideoPlayer.propTypes = {
