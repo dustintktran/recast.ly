@@ -1,15 +1,24 @@
 import exampleVideoData from "../data/exampleVideoData.js";
+import VideoList from "./VideoList.js"
+import VideoPlayer from "./VideoPlayer.js";
+import App from "./App.js";
 var VideoListEntry = (props) => (
   <div className="video-list-entry media">
     <div className="media-left media-middle">
-      <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
+      <img onClick={function(){props.onClickFunction(props.video.id.videoId,props.video.snippet.title, props.video.snippet.description)}} className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
     </div>
     <div className="media-body">
-      <div onClick={videoClick(props.video)} className="video-list-entry-title">{props.video.snippet.title}</div>
+      <div onClick={function(){props.onClickFunction(props.video.id.videoId,props.video.snippet.title, props.video.snippet.description)}} className="video-list-entry-title">{props.video.snippet.title}</div>
       <div className="video-list-entry-detail">{props.video.snippet.description}</div>
     </div>
   </div>
 );
+//onClick={videoClicked(props.video)}
+// var click = function(context, video){
+//   console.log('sadlasd');
+//   context.onClick(video);
+// }
+// function(){click(props.context,props.video.id.videoId)}
 
 // class VideoListEntry extends React.Component {
 //   constructor(props) {

@@ -1,21 +1,22 @@
 import exampleVideoData from "../data/exampleVideoData.js";
 import VideoListEntry from "./VideoListEntry.js"
 import VideoList from "./VideoList.js"
+import App from "./App.js";
 
-var VideoPlayer = () => (
+var VideoPlayer = (props) => (
   <div className="video-player">
     <div className="embed-responsive embed-responsive-16by9">
-      <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/XVmoR-zrKsQ" allowFullScreen></iframe>
+      <iframe className="embed-responsive-item" src={props.currentVideo} allowFullScreen></iframe>
     </div>
     <div className="video-player-details">
-      <h3>Cool Video</h3>
-      <div>Video Description</div>
+      <h3>{props.currentTitle}</h3>
+      <div>{props.currentDescription}</div>
     </div>
   </div>
 );
 
-// var playThisVideo(video){
-
+// var playThisVideo = function(video){
+//   return "https://www.youtube.com/embed/" + video;
 // }
 
 // PropTypes tell other developers what `props` a component expects

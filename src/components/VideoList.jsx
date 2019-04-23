@@ -4,14 +4,14 @@ import VideoListEntry from "./VideoListEntry.js"
 var VideoList = (props) => (
   <div className="video-list">
     {props.videos.map(item =>
-      <VideoListEntry video={item} />
+      <VideoListEntry video={item} onClickFunction={props.onClickFunction}/>
     )}
   </div>
 );
 
-var videoClicked = function(videoTitle){
+// var videoClicked = function(videoTitle){
   
-}
+// }
 // class VideoList extends React.Component {
 //   constructor(props) {
 //     super(props);
