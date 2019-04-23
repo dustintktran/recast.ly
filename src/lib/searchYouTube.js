@@ -15,7 +15,8 @@ var searchYouTube = (options, callback) => {
     contentType: 'application/json',
     success: callback || function(input){
       console.log(input.items);
-      return input;
+      return input.items;
+
     },
     error: function(err) {
       console.log(err)

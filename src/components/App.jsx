@@ -9,14 +9,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentVideo: 'https://www.youtube.com/embed/dwV04XuiWq4',
-      currentTitle:'First Video',
-      currentDescription:'First Description',
+      currentVideo: '',
+      currentTitle:'Click a Video',
+      currentDescription:'Click a Video to Get Started',
       videos: exampleVideoData,
-      realVideos: searchYouTube({q: 'cats', maxResults: 5 ,key: YOUTUBE_API_KEY}) || exampleVideoData,
     }
     this.onClick = this.onClick.bind(this);
     this.onSearch = this.onSearch.bind(this);
+    this.onSearch()
   }
   onClick(video, title, description) {
     this.setState({currentVideo: 'https://www.youtube.com/embed/' + video,
@@ -24,10 +24,14 @@ class App extends React.Component {
      currentDescription: description,
 });
   }
-  onSearch(q, maxResults) {
-    this.setState({
-      realVideos: searchYouTube({q: 'cats', maxResults: 5 ,key: YOUTUBE_API_KEY})
-    })
+  onSearch(query, maxResults) {
+    var context = this;
+    var newVideos = searchYouTube({ query: query, maxResults: 10, key: YOUTUBE_API_KEY }, function (input) {
+      context.setState({
+        videos: input.items
+      })
+    }
+    );
   }
   render() {
     return (
@@ -42,7 +46,7 @@ class App extends React.Component {
             <div><VideoPlayer currentVideo={this.state.currentVideo} currentTitle={this.state.currentTitle} currentDescription={this.state.currentDescription}/></div>
           </div>
           <div className="col-md-5">
-            <div><VideoList videos={this.state.realVideos} onClickFunction={this.onClick} /></div>
+            <div><VideoList videos={this.state.videos} onClickFunction={this.onClick} /></div>
           </div>
         </div>
       </div>
