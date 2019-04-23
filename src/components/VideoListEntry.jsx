@@ -1,42 +1,41 @@
 import exampleVideoData from "../data/exampleVideoData.js";
-// var VideoListEntry = () => (
-//   <div className="video-list-entry media">
-//     <div className="media-left media-middle">
-//       <img className="media-object" src="https://i.ytimg.com/vi/1w8Z0UOXVaY/default.jpg" alt="" />
-//     </div>
-//     <div className="media-body">
-//       <div className="video-list-entry-title">Video Title</div>
-//       <div className="video-list-entry-detail">Video Description</div>
-//     </div>
-//   </div>
-// );
+var VideoListEntry = (props) => (
+  <div className="video-list-entry media">
+    <div className="media-left media-middle">
+      <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
+    </div>
+    <div className="media-body">
+      <div onClick={videoClick(props.video)} className="video-list-entry-title">{props.video.snippet.title}</div>
+      <div className="video-list-entry-detail">{props.video.snippet.description}</div>
+    </div>
+  </div>
+);
 
-class VideoListEntry extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentVideo: false;
-    };
-  }
-  videoClick () {
-    this.setState({
-      currentVideo:
-    })
-  }
-  render() {
-    return (
-      <div className="video-list-entry media">
-        <div className="media-left media-middle">
-          <img className="media-object" src={this.props.video.snippet.thumbnails.default.url} alt="" />
-        </div>
-        <div className="media-body">
-          <div onClick={} className="video-list-entry-title">{this.props.video.snippet.title}</div>
-          <div className="video-list-entry-detail">{this.props.video.snippet.description}</div>
-        </div>
-      </div>
-    );
-  }
-}
+// class VideoListEntry extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       currentVideo: false
+//     };
+//     this.videoClick = this.videoClick.bind(this);
+//   }
+//   videoClick () {
+    
+//   }
+//   render() {
+//     return (
+//       <div className="video-list-entry media">
+//         <div className="media-left media-middle">
+//           <img onClick={this.videoClick} className="media-object" src={this.props.video.snippet.thumbnails.default.url} alt="" />
+//         </div>
+//         <div className="media-body">
+//           <div className="video-list-entry-title">{this.props.video.snippet.title}</div>
+//           <div className="video-list-entry-detail">{this.props.video.snippet.description}</div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
